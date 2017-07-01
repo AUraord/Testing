@@ -1,3 +1,7 @@
-#include <iostream>
+#include <windows.h>
 
-using namespace std;
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, PSTR nCmdLine, int nCmdShow)
+{
+
+	return true;
+}
