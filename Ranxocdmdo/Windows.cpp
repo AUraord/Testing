@@ -5,8 +5,8 @@
 Windows::Windows()
 	:
 	hWnd(NULL),
-	WindowWidth(500),
-	WindowHeight(500)
+	WindowWidth(400),
+	WindowHeight(399)
 {
 	
 }
@@ -19,7 +19,7 @@ Windows::~Windows()
 bool Windows::InitWindows(HINSTANCE hInst, int nCmdShow)
 {
 	WNDCLASS wc = { 0 };
-	wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+	wc.hbrBackground = (HBRUSH)GetStockObject(DKGRAY_BRUSH);
 	wc.hCursor = LoadCursor(0, IDC_ARROW);
 	wc.hIcon = LoadIcon(0, IDI_APPLICATION);
 	wc.hInstance = hInst;
