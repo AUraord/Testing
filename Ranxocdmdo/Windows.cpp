@@ -6,7 +6,7 @@ Windows::Windows()
 	:
 	hWnd(NULL),
 	WindowWidth(400),
-	WindowHeight(399)
+	WindowHeight(400)
 {
 	
 }
@@ -63,6 +63,17 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (Msg)
 	{
+	
+	case WM_PAINT:
+		{
+		PAINTSTRUCT ps;
+		HDC hdc = BeginPaint(hWnd, &ps);
+
+		FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+
+		EndPaint(hWnd, &ps);
+		}
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
