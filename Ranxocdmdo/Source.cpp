@@ -10,7 +10,7 @@ int main()
 	int Range;
 	int ToFind = 0;
 
-	system("color 4F");
+	system("color 0a");
 
 	cout << "choose a Range niger \n";
 	cin >> Range;
@@ -20,8 +20,6 @@ int main()
 	cin >> delay;
 	system("cls");
 
-	system("color 10");
-
 	srand(GetTickCount());
 
 	while (ToFind != Range)
@@ -29,12 +27,12 @@ int main()
 		ToFind = rand() % (Range+1);
 		Sleep(delay);
 		cout << ToFind  << "	";
-		NumToRange + 1;
+		NumToRange++;
 	}
 
-	system("color 4F");
+	system("cls");
 
-	cout << "it took " << NumToRange << " to find the range \n";
+	cout << "it took " << NumToRange << " numbers to find the range \n";
 
 	system("pause");
 }
