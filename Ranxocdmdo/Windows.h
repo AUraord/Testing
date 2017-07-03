@@ -9,6 +9,8 @@ public:
 
 	bool InitWindows(HINSTANCE hInst, int nCmdShow);
 	int Run();
+	
+
 	HWND hWnd;
 
 	
@@ -16,7 +18,11 @@ public:
 private:
 	const wchar_t* CLASS_NAME = L"Windows Class";
 	int WindowWidth, WindowHeight;
+	static LRESULT CALLBACK WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+	LRESULT _WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+	HWND CreateButton(const wchar_t* Text);
+
 };
 
 
-LRESULT CALLBACK WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+

@@ -23,7 +23,7 @@ bool Windows::InitWindows(HINSTANCE hInst, int nCmdShow)
 	wc.hCursor = LoadCursor(0, IDC_ARROW);
 	wc.hIcon = LoadIcon(0, IDI_APPLICATION);
 	wc.hInstance = hInst;
-	wc.lpfnWndProc = WinProc;
+	wc.lpfnWndProc = Windows::WinProc;
 	wc.lpszClassName = CLASS_NAME;
 	if (!RegisterClass(&wc))
 		return false;
@@ -31,7 +31,7 @@ bool Windows::InitWindows(HINSTANCE hInst, int nCmdShow)
 	hWnd = CreateWindow
 		(
 		CLASS_NAME, //class name
-		L"сука блять", // window name
+		NULL, // window name
 		WS_OVERLAPPEDWINDOW, //style
 		CW_USEDEFAULT, CW_USEDEFAULT,//x y
 		WindowWidth, WindowHeight, //width height
@@ -41,6 +41,10 @@ bool Windows::InitWindows(HINSTANCE hInst, int nCmdShow)
 		return false;
 
 	ShowWindow(hWnd, nCmdShow);
+	UpdateWindow(hWnd);
+	SetWindowText(hWnd, L"СУКА БЛЯТЬ");
+
+	CreateButton();
 
 	return true;
 }
@@ -49,7 +53,7 @@ int Windows::Run()
 {
 	MSG msg = { 0 };
 
-	int Ret = 1;
+	
 	while (GetMessage(&msg, 0, 0, 0))
 	{
 		TranslateMessage(&msg);
@@ -59,26 +63,46 @@ int Windows::Run()
 	return true;
 }
 
-LRESULT CALLBACK WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+LRESULT Windows::WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+{
+	if (Msg == WM_NCCREATE)
+	{
+		SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)((CREATESTRUCT*)lParam)->lpCreateParams);
+		return TRUE;
+	}
+	return ((Windows*)GetWindowLongPtr(hWnd, GWLP_USERDATA))->_WinProc(hWnd, Msg, wParam, lParam);
+}
+
+LRESULT Windows::_WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (Msg)
 	{
 	
-	case WM_PAINT:
-		{
-		PAINTSTRUCT ps;
-		HDC hdc = BeginPaint(hWnd, &ps);
-
-		FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
-
-		EndPaint(hWnd, &ps);
-		}
-		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
-		break;
+	default:
+		return DefWindowProc(hWnd, Msg, wParam, lParam);
 	}
+
+	return 0;
+}
+
+
+HWND Windows::CreateButton()
+{
+	HWND hwndButton = CreateWindow(L"BUTTON",
+		L"John Is Gay",
+		WS_VISIBLE | WS_CHILD | WS_TABSTOP | BS_DEFPUSHBUTTON,
+		(WindowWidth / 2), (WindowHeight / 2),
+		100, 30,
+		hWnd, NULL, NULL, NULL);
+	if (hwndButton == NULL)
+	{
+		return NULL;
+	}
+
 	
-	return DefWindowProc(hWnd, Msg, wParam, lParam);
+
+	return hwndButton;
 }
