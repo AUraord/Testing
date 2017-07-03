@@ -7,16 +7,22 @@ int main()
 {
 	int delay;
 	int Range;
-	int ToFind = 0;
+	int ToFind;
+
 	srand(GetTickCount());
+
 	system("color 4F");
+
 	cout << "choose a Range niger \n";
 	cin >> Range;
 	system("cls");
+
 	cout << "if you like stalin choose a delay! \n";
 	cin >> delay;
 	system("cls");
+
 	system("color 10");
+
 	while (ToFind != Range)
 	{
 		ToFind = rand() % (Range+1);
