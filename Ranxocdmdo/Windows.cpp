@@ -77,7 +77,12 @@ LRESULT Windows::_WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (Msg)
 	{
-	
+	case WM_COMMAND:
+		if (wParam == 1337)
+		{
+			Beep(1000, 100);
+		}
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
@@ -89,20 +94,21 @@ LRESULT Windows::_WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 }
 
 
-HWND Windows::CreateButton()
+bool Windows::CreateButton()
 {
 	HWND hwndButton = CreateWindow(L"BUTTON",
 		L"John Is Gay",
-		WS_VISIBLE | WS_CHILD | WS_TABSTOP | BS_DEFPUSHBUTTON,
+		WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
 		(WindowWidth / 2), (WindowHeight / 2),
-		100, 30,
-		hWnd, NULL, NULL, NULL);
+		85, 30,
+		hWnd, (HMENU)1337, NULL, NULL);
 	if (hwndButton == NULL)
 	{
-		return NULL;
+		return false;
 	}
 
 	
+	
 
-	return hwndButton;
+	return true;
 }

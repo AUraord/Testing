@@ -20,7 +20,7 @@ private:
 	int WindowWidth, WindowHeight;
 	static LRESULT CALLBACK WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
 	LRESULT _WinProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
-	HWND CreateButton(const wchar_t* Text);
+	bool CreateButton();
 
 };
 
