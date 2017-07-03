@@ -5,36 +5,54 @@ using namespace std;
 
 int main()
 {
-	int NumToRange = 1;
-	int delay;
-	int Range;
+	
+	
 	int ToFind = 0;
+	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	system("color 4F");
+	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_INTENSITY);
 
+	cout << "if you like hitler choose a number for this niggermachine to find! \n";
+	cin >> ToFind;
+	system("cls");
+
+	SetConsoleTextAttribute(hCon, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
+	int Range;
 	cout << "choose a Range niger \n";
 	cin >> Range;
 	system("cls");
+	
+	if (Range < ToFind)
+		return 1;
 
+	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	int Delay;
 	cout << "if you like stalin choose a delay! \n";
-	cin >> delay;
+	cin >> Delay;
 	system("cls");
 
-	system("color 10");
 
 	srand(GetTickCount());
 
+	int TimesToFind = 0;
+	int MaxNumber = 0;
+	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN  | BACKGROUND_RED | FOREGROUND_INTENSITY);
 	while (ToFind != Range)
 	{
-		ToFind = rand() % (Range+1);
-		Sleep(delay);
+		ToFind = rand() % (Range + 1);
+		Sleep(Delay);
 		cout << ToFind  << "	";
-		NumToRange + 1;
+		TimesToFind++;
+		if (ToFind > MaxNumber)
+			MaxNumber = ToFind;
 	}
 
-	system("color 4F");
+	
+	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 
-	cout << "it took " << NumToRange << " to find the range \n";
-
+	cout << endl << "it took " << TimesToFind << " tiems to find the range \n";
+	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN | FOREGROUND_BLUE);
+	cout << "The maximilianmus number whaz " << MaxNumber << endl;
+	SetConsoleTextAttribute(hCon, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	system("pause");
 }
