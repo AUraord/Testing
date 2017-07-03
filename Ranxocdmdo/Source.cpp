@@ -5,20 +5,20 @@ using namespace std;
 
 int main()
 {
-	int d;
-	int x;
-	int z = 0;
+	int delay;
+	int Range;
+	int ToFind = 0;
 	srand(GetTickCount());
 	system("color 0a");
-	cout << "choose a number to find niger \n";
-	cin >> x;
+	cout << "choose a Range niger \n";
+	cin >> Range;
 	cout << "if you like stalin choose a delay! \n";
-	cin >> d;
-	while (z != 1)
+	cin >> delay;
+	while (ToFind != Range)
 	{
-		z = rand() % (100 + x);
-		Sleep(d);
-		cout << z << "	";
+		ToFind = rand() % (Range+1);
+		Sleep(delay);
+		cout << ToFind << "	";
 	}
 	system("pause");
 }
