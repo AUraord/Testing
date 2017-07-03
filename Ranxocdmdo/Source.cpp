@@ -9,8 +9,6 @@ int main()
 	int Range;
 	int ToFind;
 
-	srand(GetTickCount());
-
 	system("color 4F");
 
 	cout << "choose a Range niger \n";
@@ -22,6 +20,8 @@ int main()
 	system("cls");
 
 	system("color 10");
+
+	srand(GetTickCount());
 
 	while (ToFind != Range)
 	{
