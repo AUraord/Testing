@@ -12,8 +12,10 @@ int main()
 	system("color 0a");
 	cout << "choose a Range niger \n";
 	cin >> Range;
+	system("cls");
 	cout << "if you like stalin choose a delay! \n";
 	cin >> delay;
+	system("cls");
 	while (ToFind != Range)
 	{
 		ToFind = rand() % (Range+1);
