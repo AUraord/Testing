@@ -12,13 +12,13 @@ int main()
 
 	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_INTENSITY);
 
-	cout << "if you like hitler choose a number for this niggermachine to find! \n";
+	cout << "choose a number to find! \n";
 	cin >> ToFind;
 	system("cls");
 
 	SetConsoleTextAttribute(hCon, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	int Range;
-	cout << "choose a Range niger \n";
+	cout << "choose a Range \n";
 	cin >> Range;
 	system("cls");
 	
@@ -27,7 +27,7 @@ int main()
 
 	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	int Delay;
-	cout << "if you like stalin choose a delay! \n";
+	cout << "choose a delay! \n";
 	cin >> Delay;
 	system("cls");
 
@@ -52,7 +52,7 @@ int main()
 
 	cout << endl << "it took " << TimesToFind << " tiems to find the range \n";
 	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN | FOREGROUND_BLUE);
-	cout << "The maximilianmus number whaz " << MaxNumber << endl;
+	cout << "The max number was " << MaxNumber << endl;
 	SetConsoleTextAttribute(hCon, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 	system("pause");
 }
