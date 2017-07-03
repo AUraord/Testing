@@ -5,9 +5,10 @@ using namespace std;
 
 int main()
 {
+	int NumToRange = 1;
 	int delay;
 	int Range;
-	int ToFind;
+	int ToFind = 0;
 
 	system("color 4F");
 
@@ -27,7 +28,13 @@ int main()
 	{
 		ToFind = rand() % (Range+1);
 		Sleep(delay);
-		cout << ToFind << "	";
+		cout << ToFind  << "	";
+		NumToRange + 1;
 	}
+
+	system("color 4F");
+
+	cout << "it took " << NumToRange << " to find the range \n";
+
 	system("pause");
 }
