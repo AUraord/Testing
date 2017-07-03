@@ -1,16 +1,17 @@
 #include <iostream>
-#include <cstdlib>
 #include <Windows.h>
 
 using namespace std;
 
-int c = 0
 int main()
 {
+	int z = 0;
 	srand(GetTickCount());
-	while (c = 1)
+	system("color 0a");
+	while (z != 1)
 	{
-		cout << rand() << endl;
+		z = rand() % (100 + 1);
+		cout << z << "\t";
 	}
 	system("pause");
 }
