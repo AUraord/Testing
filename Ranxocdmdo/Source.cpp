@@ -1,5 +1,16 @@
 #include <iostream>
+#include <cstdlib>
+#include <Windows.h>
 
 using namespace std;
 
-//Fidel castro is like the NA version of Stalin but less hot
+int c = 0
+int main()
+{
+	srand(GetTickCount());
+	while (c = 1)
+	{
+		cout << rand() << endl;
+	}
+	system("pause");
+}
