@@ -34,7 +34,6 @@ int main()
 	cin >> Delay;
 	system("cls");
 
-
 	srand(GetTickCount());
 
 	int MinNumber = 0;
@@ -57,7 +56,6 @@ int main()
 		if (ToFind < MinNumber)
 			MinNumber = ToFind;
 	}
-
 	
 	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 
