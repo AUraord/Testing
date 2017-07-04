@@ -1,5 +1,6 @@
 #include <iostream>
 #include <Windows.h>
+#include <ctype.h>
 
 using namespace std;
 
@@ -12,13 +13,13 @@ int main()
 
 	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_INTENSITY);
 
-	cout << "if you like hitler choose a number for this niggermachine to find! \n";
+	cout << "choose a number for this program to find! \n";
 	cin >> ToFind;
 	system("cls");
 
 	SetConsoleTextAttribute(hCon, FOREGROUND_BLUE | FOREGROUND_INTENSITY);
 	int Range;
-	cout << "choose a Range niger \n";
+	cout << "choose a Range \n";
 	cin >> Range;
 	system("cls");
 	
@@ -34,6 +35,7 @@ int main()
 
 	srand(GetTickCount());
 
+	int MinNumber = 0;
 	int TimesToFind = 0;
 	int MaxNumber = 0;
 	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN  | BACKGROUND_RED | FOREGROUND_INTENSITY);
@@ -45,14 +47,17 @@ int main()
 		TimesToFind++;
 		if (ToFind > MaxNumber)
 			MaxNumber = ToFind;
+		if (ToFind < MinNumber)
+			MinNumber = ToFind;
 	}
 
 	
 	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 
-	cout << endl << "it took " << TimesToFind << " tiems to find the range \n";
+	cout << endl << "it took " << TimesToFind << " times to find the range \n";
 	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN | FOREGROUND_BLUE);
-	cout << "The maximilianmus number whaz " << MaxNumber << endl;
+	cout << "The maximum number was " << MaxNumber << endl;
 	SetConsoleTextAttribute(hCon, FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+	cout << "The Minimum was " << MinNumber << endl;
 	system("pause");
 }
