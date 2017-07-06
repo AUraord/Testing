@@ -48,7 +48,6 @@ int main()
 	}
 
 	
-	SetConsoleTextAttribute(hCon, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 
 	cout << endl << "it took " << TimesToFind << " tiems to find the range \n";
 	SetConsoleTextAttribute(hCon, FOREGROUND_GREEN | FOREGROUND_BLUE);
